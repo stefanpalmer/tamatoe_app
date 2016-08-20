@@ -5,10 +5,10 @@ feature 'Adding entries' do
     visit root_path
 
     click_link 'New Entry'
-
-    fill_in 'Date', with: '08/16/16'
-    fill_in 'Foods', with: 'tomatoes, apples, bread'
-    fill_in 'Notes', with: 'try eating less bread'
+save_and_open_page
+    select_date(Date.today, from:'entry_date')
+    fill_in 'What did you eat today?', with: 'tomatoes, apples, bread'
+    fill_in 'Additional Notes', with: 'try eating less bread'
 
     click_button 'Create Entry'
 

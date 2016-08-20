@@ -13,7 +13,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
 
     if @entry.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'Entry has been added'
     else
       render 'new'
     end
@@ -41,7 +41,7 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entries).permit(:date, :foods, :notes)
+    params.require(:entry).permit(:date, :foods, :notes)
   end
 
   def find_entry
