@@ -1,5 +1,6 @@
 <h2><%= @entry.date %></h2>
 <h3><%= @entry.foods %></h3>
+<h3>Feeling: <%= @entry.category.feeling %></h3>
 <h3><%= @entry.notes %></h3>
 
 <%= link_to 'Back', root_path %>

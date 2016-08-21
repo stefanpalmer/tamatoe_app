@@ -7,10 +7,12 @@ class EntriesController < ApplicationController
 
   def new
     @entry = current_user.entries.build
+    @categories = Category.all.map{ |c| [c.feeling, c.id] }
   end
 
   def create
     @entry = current_user.entries.build(entry_params)
+    @entry.category_id = params[:category_id]
 
     if @entry.save
       redirect_to root_path, notice: 'Entry has been added'
@@ -23,9 +25,11 @@ class EntriesController < ApplicationController
   end
 
   def edit
+    @categories = Category.all.map{ |c| [c.feeling, c.id] }
   end
 
   def update
+    @entry.category_id = params[:category_id]
     if @entry.update(entry_params)
       redirect_to entry_path(@entry)
     else
@@ -41,7 +45,7 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entry).permit(:date, :foods, :notes)
+    params.require(:entry).permit(:date, :foods, :notes, :category_id)
   end
 
   def find_entry
