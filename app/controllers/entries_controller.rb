@@ -6,11 +6,11 @@ class EntriesController < ApplicationController
   end
 
   def new
-    @entry = Entry.new
+    @entry = current_user.entries.build
   end
 
   def create
-    @entry = Entry.new(entry_params)
+    @entry = current_user.entries.build(entry_params)
 
     if @entry.save
       redirect_to root_path, notice: 'Entry has been added'
