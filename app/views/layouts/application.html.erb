@@ -9,11 +9,14 @@
   </head>
 
   <body>
+
+
   <% flash.each do |flash_type, flash_message| %>
     <div class='flash' id='<%= flash_type %> '>
       <%= flash_message %>
     </div>
   <% end %>
+  <%= render 'layouts/authentication' %>
     <%= yield %>
   </body>
 </html>
