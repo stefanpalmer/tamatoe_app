@@ -50,7 +50,7 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entry).permit(:date, :foods, :notes, :category_id)
+    params.require(:entry).permit(:date, :foods, :notes, :category_id, :entry_img)
   end
 
   def find_entry

@@ -2,6 +2,7 @@
 
 <%= simple_form_for @entry, :html => { :multipart => :true } do |f| %>
   <%= f.select :category_id, @categories %>
+  <%= f.file_field :entry_img %>
   <%= f.input :date, label: 'Date' %>
   <%= f.input :foods, label: 'What did you eat today?' %>
   <%= f.input :notes, label: 'Additional Notes' %>

@@ -1,5 +1,6 @@
 <%= simple_form_for @entry, :html => { :multipart => :true } do |f| %>
   <%= select_tag(:category_id, options_for_select(@categories), :prompt => 'Feeling?') %>
+  <%= f.file_field :entry_img %>
   <%= f.input :date, label: 'Date' %>
   <%= f.input :foods, label: 'What did you eat today?' %>
   <%= f.input :notes, label: 'Additional Notes' %>
