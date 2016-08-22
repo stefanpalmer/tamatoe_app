@@ -2,7 +2,12 @@ class EntriesController < ApplicationController
   before_action :find_entry, only: [:show, :edit, :update, :destroy]
 
   def index
-    @entries = Entry.all.order('created_at DESC')
+    if params[:category].blank?
+      @entries = Entry.all.order("created_at DESC")
+    else
+      @category_id = Category.find_by(feeling: params[:category]).id
+      @entries = Entry.where(:category_id => @category_id).order('created_at DESC')
+    end
   end
 
   def new
