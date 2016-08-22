@@ -1,3 +1,5 @@
+<h1 class="current-category"><%= params[:category] %></h1>
+
 <%= @entries.to_a.each do |entry|%>
     <h2><%= link_to entry.date, entry_path(entry) %></h2>
 <% end %>
