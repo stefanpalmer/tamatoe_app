@@ -51,11 +51,15 @@
   </nav>
 
 
+
+
   <% flash.each do |flash_type, flash_message| %>
     <div class='flash' id='<%= flash_type %> '>
       <%= flash_message %>
     </div>
   <% end %>
+  <div class="container">
     <%=yield%>
+  </div>
   </body>
 </html>
