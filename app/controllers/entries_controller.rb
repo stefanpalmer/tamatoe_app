@@ -6,7 +6,7 @@ class EntriesController < ApplicationController
       @entries = current_user.entries
 
       if params[:category].present?
-        @entries = @entries.joins(:category).where(category: { feeling: params[:category]})
+        @entries = @entries.joins(:category).where(categories: { feeling: params[:category]})
       end
     else
       @entries = Entry.all
