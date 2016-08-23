@@ -2,17 +2,21 @@ class EntriesController < ApplicationController
   before_action :find_entry, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:category].blank?
-      @entries = Entry.all.order("created_at DESC")
+    if current_user
+      @entries = current_user.entries
+
+      if params[:category].present?
+        @entries = @entries.joins(:category).where(category: { feeling: params[:category]})
+      end
     else
-      @category_id = Category.find_by(feeling: params[:category]).id
-      @entries = Entry.where(:category_id => @category_id).order('created_at DESC')
+      @entries = Entry.all
     end
+    @entries.order('created_at DESC')
   end
 
   def new
     @entry = current_user.entries.build
-    @categories = Category.all.map{ |c| [c.feeling, c.id] }
+    @categories = Category.all.map { |c| [c.feeling, c.id] }
   end
 
   def create
@@ -22,7 +26,7 @@ class EntriesController < ApplicationController
     if @entry.save
       redirect_to root_path, notice: 'Entry has been added'
     else
-      @categories = Category.all.map{ |c| [c.feeling, c.id] }
+      @categories = Category.all.map { |c| [c.feeling, c.id] }
       render 'new'
     end
   end
@@ -31,7 +35,7 @@ class EntriesController < ApplicationController
   end
 
   def edit
-    @categories = Category.all.map{ |c| [c.feeling, c.id] }
+    @categories = Category.all.map { |c| [c.feeling, c.id] }
   end
 
   def update
