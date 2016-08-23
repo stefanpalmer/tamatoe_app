@@ -1,5 +1,6 @@
 class Entry < ApplicationRecord
-  validates :date, uniqueness: true
+  validates :date, uniqueness: {scope: :user_id,
+  message: 'Sorry, only one entry allowed per day'}
   belongs_to :user
   belongs_to :category
 
