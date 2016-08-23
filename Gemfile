@@ -10,6 +10,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'aws-sdk-rails'
 gem 'aws-sdk', '~>2'
+gem 'dotenv-rails'
 gem 'coffee-rails', '~> 4.2'
 
 gem 'jquery-rails'

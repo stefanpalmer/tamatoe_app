@@ -22,6 +22,7 @@ class EntriesController < ApplicationController
     if @entry.save
       redirect_to root_path, notice: 'Entry has been added'
     else
+      @categories = Category.all.map{ |c| [c.feeling, c.id] }
       render 'new'
     end
   end

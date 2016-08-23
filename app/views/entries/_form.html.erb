@@ -1,3 +1,14 @@
+<% if @entry.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this friend from being saved:</h2>
+
+    <ul>
+      <% @entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= simple_form_for @entry, :html => { :multipart => :true } do |f| %>
   <%= select_tag(:category_id, options_for_select(@categories), :prompt => 'Feeling?') %>
   <%= f.file_field :entry_img %>
