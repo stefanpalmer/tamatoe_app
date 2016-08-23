@@ -16,7 +16,7 @@
 
 <%= link_to 'Back', root_path %>
 
-<% if current_user? %>
+<% if current_user %>
 
   <% if @entry.user_id == current_user.id %>
     <%= link_to 'Edit', edit_entry_path(@entry) %>
