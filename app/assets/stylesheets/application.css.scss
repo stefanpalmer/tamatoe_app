@@ -72,13 +72,13 @@ p.alert, p.notice {
   }
 
   .dropdown-menu > li > a:hover {
-    background-color: darken(darkseagreen, 5%);
+    background-color: darken(seagreen, 5%);
     color: darkseagreen;
   }
 
   .navbar-nav > .open > a, .navbar-nav > .open > a:hover, .navbar-nav > .open > a:focus {
-    background-color: darken(mintcream, 5%);
-    color: mintcream;
+    background-color: darken(darkseagreen, 5%);
+    color: darkseagreen;
   }
 
 }
@@ -92,30 +92,31 @@ p.alert, p.notice {
 /* Button/link styles */
 
 .btn-custom {
-  color: darken(#f1c40f, 5%);
-  background-color: darksalmon;
-  border: 1px solid darken(#f1c40f, 5%);
-  padding: 8px 20px;
+  color: darken(black, 5%);
+  background-color: #F7F7F7;
+  border: 1px solid darken(black, 50%);
+  padding: 3px 9px;
   border-radius: 5px;
   font-family: 'Ubuntu', sans-serif;
   &:hover {
     text-decoration: none;
-    background-color: darken(#f1c40f, 5%);
+    background-color: darken(indianred, 5%);
     color: green;
     transition: 0.5s;
+    border: black;
   }
 }
 
 .btn-custom2 {
   color: #333;
-  background-color: darksalmon;
-  border: 1px solid #222;
-  padding: 8px 20px;
-  border-radius: 5px;
+  background-color: firebrick;
+  border: 0.5px solid #222;
+  padding: 5px 9px;
+  border-radius: 3px;
   font-family: 'Ubuntu', sans-serif;
   &:hover {
     text-decoration: none;
-    background-color: #333;
+    background-color: tomato;
     color: #fff;
     transition: 0.5s;
   }

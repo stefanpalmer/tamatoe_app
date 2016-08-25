@@ -3,7 +3,7 @@
 <div class="row">
 
   <% @entries.each do |entry|%>
-    <div class="col-md-3">
+    <div class="col-md-1">
       <a href="/entries/<%= entry.id %>">
         <%= image_tag entry.entry_img.url(:entry_index), class: "entry" %>
       </a>
