@@ -37,6 +37,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
 
+p {
+  font-size: 1.5em;
+}
+
 p.alert, p.notice {
   margin: 0;
 }
@@ -86,6 +90,23 @@ p.alert, p.notice {
 .dropdown-menu > .active > a {
   background-color: darkolivegreen;
   color: darkolivegreen;
+}
+
+.about-image {
+  height: 500px;
+  width: 400px;
+  margin-bottom: 50px;
+  margin-left: 62px;
+  margin-top: 50px;
+  margin-right: 5px;
+}
+
+.about-image2 {
+  height: 500px;
+  width: 400px;
+  margin-bottom: 50px;
+  margin-left: 200px;
+  margin-top: 50px;
 }
 
 
