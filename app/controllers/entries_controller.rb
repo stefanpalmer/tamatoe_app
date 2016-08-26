@@ -9,8 +9,7 @@ class EntriesController < ApplicationController
         @entries.order('created_at DESC')
       end
     else
-      @entries = Entry.all
-      @entries.order('created_at DESC')
+      @entries = Entry.all.order('created_at DESC')
     end
   end
 
