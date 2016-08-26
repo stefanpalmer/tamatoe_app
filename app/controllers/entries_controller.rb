@@ -3,15 +3,15 @@ class EntriesController < ApplicationController
 
   def index
     if current_user
-      @entries = current_user.entries
-
+      @entries = current_user.entries.order('created_at DESC')
       if params[:category].present?
         @entries = @entries.joins(:category).where(categories: { feeling: params[:category]})
+        @entries.order('created_at DESC')
       end
     else
       @entries = Entry.all
+      @entries.order('created_at DESC')
     end
-    @entries.order('created_at DESC')
   end
 
   def new
