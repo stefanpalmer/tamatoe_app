@@ -10,6 +10,10 @@ class EntriesController < ApplicationController
       end
     else
       @entries = Entry.all.order('created_at DESC')
+      if params[:category].present?
+        @entries = @entries.joins(:category).where(categories: { feeling: params[:category]})
+        @entries.order('created_at DESC')
+      end
     end
   end
 
