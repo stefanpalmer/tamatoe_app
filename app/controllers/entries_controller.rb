@@ -52,7 +52,7 @@ class EntriesController < ApplicationController
 
   def destroy
     @entry.destroy
-    redirect_to entry_path
+    redirect_to root_path
   end
 
   private
